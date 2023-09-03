@@ -3,7 +3,7 @@ from requests import Session
 from requests.exceptions import HTTPError
 import json
 
-URL = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword"
+URL_LOGIN = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword"
 
 def raise_detailed_error(request_object):
     try:
@@ -14,7 +14,7 @@ def raise_detailed_error(request_object):
 
 class FireBaseInit:
     """ Initailizes Firebase """
-    def __init__(self, str: info, config):
+    def __init__(self, info, config):
         self.info = info
         self.config = config
         self.requests = requests.Session()
@@ -34,7 +34,7 @@ class Auth:
         self.credentials = credentials
 
     def sign_in_with_email_and_password(self, email, password):
-        request_ref = f"{URL}?key={self.api_key}"
+        request_ref = f"{URL_LOGIN}?key={self.api_key}"
         headers = {"content-type": "application/json; charset=UTF-8"}
         data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
         request_object = requests.post(request_ref, headers=headers, data=data)
