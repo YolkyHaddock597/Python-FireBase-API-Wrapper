@@ -1,6 +1,5 @@
 import requests
 from requests import Session
-from requests.exceptions import HTTPError
 import json
 
 URL_LOGIN = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword"
@@ -24,7 +23,6 @@ class FireBaseInit:
     def auth(self):
         return Auth(self.api_key, self.requests, self.credentials)
 
-    
 class Auth:
     """ Authentication """
     def __init__(self, api_key, requests, credentials):
