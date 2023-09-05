@@ -4,6 +4,8 @@ WORK IN PROGRESS
 
 This is a basic wrapper for the auth parts of the api. This is not intended to be a full solution for the firebase api.
 
+
+
 ```python
 import firebase_api
 
